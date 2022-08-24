@@ -1,6 +1,7 @@
 let express = require('express'),
     app     = express(),
     bodyParser = require('body-parser')
+    // db         = require('./services')
 
 app.use(express.static(__dirname + '/views'))
 app.use(express.static(__dirname + '/public'))
