@@ -39,4 +39,13 @@ exports.findOne = (req, res)=>{
     })
 }
 
+exports.deleteOne = (req, res)=>{
+    Review.deleteReview(req.params.id, (err, data)=>{
+        if(err){
+            res.status(404).json({message: 'unable to delete this review', err: err})
+        }
+        res.status(200).json({message: 'successfully deleted', err: err})
+    })
+}
+
 module.exports = exports

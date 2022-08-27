@@ -32,4 +32,14 @@ Review.findById = (id, result)=>{
 }
 
 
+Review.deleteReview = (id, result)=>{
+    sql.query(`DELETE FROM reviews WHERE id = ${id}`, (err, res)=>{
+        if(err){
+            result(null, err)
+            return;
+        }
+        result(null, res)
+    })
+}
+
 module.exports = Review

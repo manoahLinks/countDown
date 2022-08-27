@@ -8,7 +8,8 @@ router.route('/')
     .post(controller.createReview)
 
 router.route('/:id')
-    .get(controller.findOne)    
+    .get(controller.findOne)
+    .delete(controller.deleteOne)    
     
 
 module.exports = router    
