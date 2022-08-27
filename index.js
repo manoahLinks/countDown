@@ -14,7 +14,7 @@ app.get('/', (req, res)=>{
     res.render('index')
 })
 
-app.use('/user', Userroute)
+app.use('/api/review', Userroute)
 
 app.listen(9500, ()=>{
     console.log('CountDown App serving')

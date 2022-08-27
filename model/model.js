@@ -1,5 +1,6 @@
 const sql = require('../services/db')
 
+// defining a review constructor
 function Review (email, message){
 
     this.email = email
