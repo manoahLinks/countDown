@@ -5,6 +5,10 @@ let express = require('express'),
 
 router.route('/')
     .get(controller.getAllReview)
+    .post(controller.createReview)
+
+router.route('/:id')
+    .get(controller.findOne)    
     
 
 module.exports = router    
