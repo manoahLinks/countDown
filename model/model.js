@@ -55,6 +55,14 @@ Review.deleteReview = (id, result)=>{
     })
 }
 
+Review.deleteAllReviews = (result)=>{
+    sql.query("DELETE FROM reviews", (err, res)=>{
+        if(err){
+            result(null, err)
+        }
+        result(null, res)
+    })
+}
 
 
 module.exports = Review

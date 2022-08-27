@@ -58,7 +58,17 @@ exports.deleteOne = (req, res)=>{
         if(err){
             res.status(404).json({message: 'unable to delete this review', err: err})
         }
-        res.status(200).json({message: 'successfully deleted', err: err})
+        res.status(200).json({message: 'successfully deleted', data: data})
+    })
+}
+
+
+exports.deleteAll = (req, res)=>{
+    Review.deleteAllReviews((err, data)=>{
+        if(err){
+            res.status(404).json({message: 'an error occured while deleting all reviews'})
+        }
+        res.status(200).json({message: `successfully deleted ${data.affectedRows}`})
     })
 }
 
