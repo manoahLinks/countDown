@@ -24,13 +24,26 @@ Review.findById = (id, result)=>{
             result(null, err)
             return;
         }
-        if(res.length){
+         else if(res.length){
             result(null, res)
+        }else{
+            result({message: 'unable to locate resource'})
         }
-        // result({message: 'unable to locate resource'})
     })
 }
 
+
+Review.updateById = (id, review,result)=>{
+    sql.query(`UPDATE reviews SET email = ?, message = ? WHERE id = ${id}`, 
+    [review.email, review.message], (err, res)=>{
+        if(err){
+            result(null, err)
+        }
+        else{
+            result(null, res)
+        }
+    })
+}
 
 Review.deleteReview = (id, result)=>{
     sql.query(`DELETE FROM reviews WHERE id = ${id}`, (err, res)=>{
@@ -41,5 +54,7 @@ Review.deleteReview = (id, result)=>{
         result(null, res)
     })
 }
+
+
 
 module.exports = Review

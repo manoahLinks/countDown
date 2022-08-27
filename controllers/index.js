@@ -39,6 +39,20 @@ exports.findOne = (req, res)=>{
     })
 }
 
+exports.updateOne = (req, res)=>{
+    if(!req.body){
+        res.status(404).json({message: 'fields cannot be empty'})
+    }
+
+    Review.updateById(req.params.id, new Review(req.body.email, req.body.message), (err, data)=>{
+        if(err){
+            res.status(500).json({message: 'error updating review', err: err})
+        }
+
+        res.status(200).json(data)
+    })
+}
+
 exports.deleteOne = (req, res)=>{
     Review.deleteReview(req.params.id, (err, data)=>{
         if(err){

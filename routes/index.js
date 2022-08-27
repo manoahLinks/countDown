@@ -9,6 +9,7 @@ router.route('/')
 
 router.route('/:id')
     .get(controller.findOne)
+    .put(controller.updateOne)
     .delete(controller.deleteOne)    
     
 
